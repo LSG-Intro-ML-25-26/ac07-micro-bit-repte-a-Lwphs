@@ -1,8 +1,10 @@
-input.onButtonPressed(Button.A, function () {
+input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    
     hand = hand + 1
     if (hand > 3) {
         hand = 1
     }
+    
     if (hand == 1) {
         basic.showIcon(IconNames.SmallSquare)
         music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
@@ -13,8 +15,10 @@ input.onButtonPressed(Button.A, function () {
         basic.showIcon(IconNames.Scissors)
         music.play(music.createSoundExpression(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
     }
+    
 })
-input.onGesture(Gesture.Shake, function () {
+input.onGesture(Gesture.Shake, function on_gesture_shake() {
+    
     handCPU = randint(1, 3)
     if (handCPU == 1) {
         basic.showIcon(IconNames.SmallSquare)
@@ -26,8 +30,10 @@ input.onGesture(Gesture.Shake, function () {
         basic.showIcon(IconNames.Scissors)
         music.play(music.createSoundExpression(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
     }
+    
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonPressed(Button.B, function on_button_pressed_b() {
+    
     handCPU = randint(1, 3)
     basic.showString("CPU")
     if (handCPU == 1) {
@@ -37,6 +43,7 @@ input.onButtonPressed(Button.B, function () {
     } else {
         basic.showIcon(IconNames.Scissors)
     }
+    
     basic.showString("YOU")
     if (hand == 1) {
         basic.showIcon(IconNames.SmallSquare)
@@ -45,6 +52,7 @@ input.onButtonPressed(Button.B, function () {
     } else {
         basic.showIcon(IconNames.Scissors)
     }
+    
     if (hand == 1) {
         if (handCPU == 2) {
             basic.showString("LOSE")
@@ -53,6 +61,7 @@ input.onButtonPressed(Button.B, function () {
         } else {
             basic.showString("DRAW")
         }
+        
     } else if (hand == 2) {
         if (handCPU == 1) {
             basic.showString("WIN")
@@ -61,20 +70,20 @@ input.onButtonPressed(Button.B, function () {
         } else {
             basic.showString("DRAW")
         }
+        
+    } else if (handCPU == 1) {
+        basic.showString("LOSE")
+    } else if (handCPU == 2) {
+        basic.showString("WIN")
     } else {
-        if (handCPU == 1) {
-            basic.showString("LOSE")
-        } else if (handCPU == 2) {
-            basic.showString("WIN")
-        } else {
-            basic.showString("DRAW")
-        }
+        basic.showString("DRAW")
     }
+    
 })
 let handCPU = 0
 let hand = 0
 hand = 0
 basic.showString("CPU vs YOU")
-basic.forever(function () {
-	
+basic.forever(function on_forever() {
+    
 })
